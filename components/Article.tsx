@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { FC } from 'react'
+import { FC, memo } from 'react'
 import { Article } from '../types'
 import getArticleThumbnailText from '../utils/getArticleThumnailText'
 import getArticleTitle from '../utils/getArticleTitle'
@@ -19,4 +19,4 @@ const Article: FC<ArticleProps> = ({ article }) => (
   </article>
 )
 
-export default Article
+export default memo(Article)
