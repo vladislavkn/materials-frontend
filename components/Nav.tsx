@@ -14,7 +14,7 @@ const Nav: React.FC = () => (
               <Pencil size={32} />
             </a>
           </Link>
-          <Link href="create-article">
+          <Link href="profile">
             <a className="cursor-pointer">
               <User size={32} />
             </a>
