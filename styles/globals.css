@@ -11,3 +11,7 @@ body,
 #__next {
   height: 100%;
 }
+
+input[type='radio']:checked + label {
+  @apply border-gray-400;
+}
