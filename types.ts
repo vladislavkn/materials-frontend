@@ -15,9 +15,9 @@ export type Article = {
 }
 
 export type ArticlesQueryOptions = {
-  title?: string
+  search?: string
+  articleId?: string
   authorId?: string
-  text?: string
   state?: articleState
   skip?: string
   limit?: string
