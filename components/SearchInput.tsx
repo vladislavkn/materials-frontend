@@ -14,7 +14,7 @@ const SearchInput: FC<SearchInputProps> = (props) => {
   }
 
   return (
-    <label className="flex items-center py-2 px-4 gap-4 border border-gray-400 rounded text-gray-800">
+    <label className="flex items-center py-2 px-4 flex-grow sm:flex-grow-0 gap-4 border border-gray-400 rounded text-gray-800">
       <MagnifyingGlass size={32} />
       <input
         type="search"
