@@ -1,22 +1,34 @@
 import { useDeferredValue, useMemo, useState } from 'react'
 import Articles from '../components/Articles'
 import Layout from '../components/Layout'
-import SearchInput from '../components/SearchInput'
+import SearchForm, { SearchFormProps } from '../components/SearchForm'
 
 const IndexPage: React.FC = () => {
   const [searchValue, setSearchValue] = useState('')
   const defferedSearchValue = useDeferredValue(searchValue)
 
+  const [searchField, setSearchField] =
+    useState<SearchFormProps['searchField']>('title')
+  const defferedSearchField = useDeferredValue(searchField)
+
   const articles = useMemo(
-    () => <Articles searchValue={defferedSearchValue} />,
-    [defferedSearchValue]
+    () => (
+      <Articles
+        searchValue={defferedSearchValue}
+        searchField={defferedSearchField}
+      />
+    ),
+    [defferedSearchValue, defferedSearchField]
   )
 
   return (
     <Layout>
-      <div className="flex mb-12">
-        <SearchInput value={searchValue} onChange={setSearchValue} />
-      </div>
+      <SearchForm
+        searchValue={searchValue}
+        onChangeSearchValue={setSearchValue}
+        searchField={searchField}
+        onChangeSearchField={setSearchField}
+      />
       {articles}
     </Layout>
   )

@@ -4,11 +4,13 @@ import Article from './Article'
 
 type ArticlesProps = {
   searchValue: string
+  searchField: string
 }
 
-const Articles: FC<ArticlesProps> = ({ searchValue }) => {
+const Articles: FC<ArticlesProps> = (props) => {
+  const { searchValue, searchField } = props
   const { isLoading, data, error } = useGetArticlesQuery({
-    title: searchValue,
+    [searchField]: searchValue,
   })
 
   if (isLoading) return <span>Loading...</span>
