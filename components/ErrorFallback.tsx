@@ -6,7 +6,7 @@ type ErrorFallbackProps = {
 }
 
 const ErrorFallback: FC<ErrorFallbackProps> = (props) => {
-  const { error, defaultMessage = 'Sonwthing went wrong' } = props
+  const { error, defaultMessage = 'Something went wrong' } = props
 
   return (
     <div className="border border-red-600 py-2 px-4 rounded text-red-600">
