@@ -8,7 +8,7 @@ const IndexPage: React.FC = () => {
   const defferedSearchValue = useDeferredValue(searchValue)
 
   const articles = useMemo(
-    () => <Articles searchValue={defferedSearchValue} />,
+    () => <Articles options={{ search: defferedSearchValue }} />,
     [defferedSearchValue]
   )
 
