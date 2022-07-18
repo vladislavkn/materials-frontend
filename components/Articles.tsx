@@ -2,16 +2,22 @@ import { SerializedError } from '@reduxjs/toolkit'
 import { FetchBaseQueryError } from '@reduxjs/toolkit/dist/query'
 import { FC } from 'react'
 import { useGetArticlesQuery } from '../store/articles.api'
+import { ArticlesQueryOptions, ArticleState } from '../types'
 import Article from './Article'
 import ErrorFallback from './ErrorFallback'
 
 type ArticlesProps = {
-  searchValue: string
+  options: ArticlesQueryOptions
 }
 
-const Articles: FC<ArticlesProps> = ({ searchValue }) => {
+const defaultOptions: ArticlesQueryOptions = {
+  state: ArticleState.PUBLISHED,
+}
+
+const Articles: FC<ArticlesProps> = ({ options }) => {
   const { isLoading, data, error } = useGetArticlesQuery({
-    search: searchValue,
+    ...defaultOptions,
+    ...options,
   })
 
   if (isLoading) return <span>Loading...</span>
