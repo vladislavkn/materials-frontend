@@ -22,3 +22,25 @@ export type ArticlesQueryOptions = {
   skip?: string
   limit?: string
 }
+
+export enum userRole {
+  READER = 'READER',
+  MODERATOR = 'MODERATOR',
+  ADMIN = 'ADMIN',
+}
+
+export type User = {
+  id: number
+  name: string
+  email: string
+  role: userRole
+}
+
+export type LoginOptions = {
+  email: string
+  password: string
+}
+
+export type RegisterOptions = LoginOptions & {
+  name: string
+}
