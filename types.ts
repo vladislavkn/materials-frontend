@@ -1,4 +1,4 @@
-export enum articleState {
+export enum ArticleState {
   DRAFT = 'DRAFT',
   PROPOSAL = 'PROPOSAL',
   PUBLISHED = 'PUBLISHED',
@@ -10,7 +10,7 @@ export type Article = {
   thumbnailText: string
   text: string
   author: null
-  state: articleState
+  state: ArticleState
   createdAt: string
 }
 
@@ -18,7 +18,7 @@ export type ArticlesQueryOptions = {
   search?: string
   articleId?: string
   authorId?: string
-  state?: articleState
+  state?: ArticleState | 'ANY'
   skip?: string
   limit?: string
 }
