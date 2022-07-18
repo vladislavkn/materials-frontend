@@ -1,4 +1,5 @@
 import { FC } from 'react'
+import Articles from '../components/Articles'
 import Layout from '../components/Layout'
 import useUser from '../hooks/useUser'
 import { useAppDispatch } from '../store'
@@ -16,7 +17,7 @@ const ProfilePage: FC = () => {
 
   return (
     <Layout>
-      <header className="flex items-center justify-between text-gray-800">
+      <header className="flex items-center justify-between mb-14 text-gray-800">
         <div className="flex gap-2 flex-col">
           <h2 className="font-medium text-4xl">{user.name}</h2>
           <p className="text-gray-400">{user.role.toLowerCase()}</p>
@@ -25,6 +26,8 @@ const ProfilePage: FC = () => {
           Logout
         </button>
       </header>
+      <h3 className="uppercase mb-6 tracking-wide">Proposed materials</h3>
+      <Articles options={{ authorId: String(user.id), state: 'ANY' }} />
     </Layout>
   )
 }
